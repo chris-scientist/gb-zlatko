@@ -1,7 +1,7 @@
 
 # Zlatko Framework
 
-v0.0.1
+v0.0.2
 
 ## Description
 
@@ -19,5 +19,5 @@ Voici une version du jeu que j'ai développé dans le cadre d'un tutoriel, sans 
 
 ## Sommaire documentation
 
-[001 - Présentation du coeur du framework et de ses fonctionnalités](documentation/001_coeur_fonctionnalites.MD)
-[101 - Gestionnaire d'états : ZlatkoStateManager](documentation/101_gestionnaire_etats.MD)
+* [001 - Présentation du coeur du framework et de ses fonctionnalités](documentation/001_coeur_fonctionnalites.MD)
+* [101 - Gestionnaire d'états : ZlatkoStateManager](documentation/101_gestionnaire_etats.MD)
