@@ -1,7 +1,7 @@
 
 # Gérer l'état du jeu avec ZlatkoStateManager - Zlatko Framework
 
-v0.0.1
+v0.0.2
 
 ## Présentation
 
@@ -13,7 +13,7 @@ Détaillons quelques états, en reprenant nos exemples :
 
 Le framework intègre un gestionnaire d'état qui est représenté par la classe *ZlatkoStateManager*. Ce gestionnaire fournit des états par défauts, et accepte des états dont vous pourriez avoir besoin.
 
-Voyons comment le détail de les états par défaut et ces fonctionnalités.
+Voyons le détail de ces états par défauts et ces fonctionnalités.
 
 ## Etats par défauts
 
@@ -27,7 +27,7 @@ Listons les états par défauts :
 * ABOUT_ZLATKO_STATE : afficher les crédits du framework
 * DEBUG_STATE : écran de débugage
 
-## Fonctionnalités de ZLatkoStateManager
+## Fonctionnalités de ZlatkoStateManager
 
 Détaillons les méthodes exposés par le gestionnaire d'états.
 
