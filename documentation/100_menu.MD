@@ -1,11 +1,13 @@
 
 # Menu avec ZlatkoAbstractMenu et ZlatkoDefaultMenu - Zlatko Framework
 
-v0.0.1
+v0.0.2
+
+[Retour au sommaire](../README.MD)
 
 ## Présentation
 
-La classe ZlatkoDefaultMenu est une implémentation de ZlatkoAbstractMenu et cette première fournit un menu par défaut.
+La classe *ZlatkoDefaultMenu* est une implémentation de *ZlatkoAbstractMenu* et cette première fournit un menu par défaut.
 
 Ce menu par défaut contient les rubriques suivantes :
 * Jouer / Play
@@ -14,7 +16,7 @@ Ce menu par défaut contient les rubriques suivantes :
 
 ## Fonctionnement
 
-Si vous voulez utiliser le système de menu par défaut mais que le menu par défaut fourni par le framework ne vous convient pas, vous devez alors écrire une classe qui hérite de ZlatkoAbstractMenu.
+Si vous voulez utiliser le système de menu par défaut mais que le menu par défaut fourni par le framework ne vous convient pas, vous devez alors écrire une classe qui hérite de *ZlatkoAbstractMenu*.
 
     // VotreMenu.h
     
@@ -27,13 +29,13 @@ Si vous voulez utiliser le système de menu par défaut mais que le menu par dé
     
     // VotreMenu.cpp
     
-    #icnlude "VotreMenu.h"
+    #include "VotreMenu.h"
     
     void VotreMenu::paint() {
     	// Le code de votre menu ici...
     }
 
-Dans la classe ZlatkoEngine, et plus précisement la méthode manageCommands() il vous faudra adapter le code suivant :
+Dans la classe *ZlatkoEngine*, et plus précisement la méthode *manageCommands()* il vous faudra adapter le code suivant :
 
     if(stateManager->isMainMenuState()) {
         // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
