@@ -1,7 +1,7 @@
 
 # Menu avec ZlatkoAbstractMenu et ZlatkoDefaultMenu - Zlatko Framework
 
-v0.0.2
+v0.0.3
 
 [Retour au sommaire](../README.MD)
 
@@ -34,6 +34,10 @@ Si vous voulez utiliser le système de menu par défaut mais que le menu par dé
     void VotreMenu::paint() {
     	// Le code de votre menu ici...
     }
+
+De plus, dans votre programme principale, en particulier dans la méthode *setup()* après la ligne "engine = new ZlatkoEngine();" vous devrez écrire :
+
+    engine->setDefaultMainMenu(new VotreMenu());
 
 Dans la classe *ZlatkoEngine*, et plus précisement la méthode *manageCommands()* il vous faudra adapter le code suivant :
 
