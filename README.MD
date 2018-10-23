@@ -1,7 +1,7 @@
 
 # Zlatko Framework
 
-v0.0.3
+v0.0.4
 
 ## Description
 
@@ -15,7 +15,7 @@ Le Sokoban est un jeu où nous incarnons un personnage qui se trouve dans un ent
 
 Voici une version du jeu que j'ai développé dans le cadre d'un tutoriel, sans utilisé ce framework (qui n'existait pas encore), mais je prévois d'écrire une version plus complète du jeu avec ce framework :
 
-// Images sokoban ! A venir !
+![Exemple Sokoban](documentation/Images/SOKOBAN.BMP)
 
 ## Sommaire documentation
 
