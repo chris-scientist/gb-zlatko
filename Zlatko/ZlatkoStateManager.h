@@ -1,5 +1,6 @@
 // author: chris-scientist
 // created at: 18/10/2018
+// updated at: 31/10/2018
 // description: permet de gérer les différents états du jeu afin d'adapter les commandes et l'affichage
 
 // **************************************************************************
@@ -12,6 +13,7 @@
 #ifndef ZLATKOSTATEMANAGER
 #define ZLATKOSTATEMANAGER
 
+#include "ZlatkoErrorManager.h"
 #include "ZlatkoConstantes.h"
 #include "ZlatkoVector.cpp"
 
@@ -39,7 +41,7 @@ class ZlatkoStateManager {
     bool isAboutZlatkoState() const;
     bool isDebugState() const;
     bool isCurrentState(const unsigned int aState) const;
-    bool addState(const unsigned int aState);
+    const int addState(const unsigned int aState);
   private:
     int indexOfState;
     ZlatkoVector<unsigned int> * setOfState;

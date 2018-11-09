@@ -1,5 +1,6 @@
 // author: chris-scientist
 // created at: 21/10/2018
+// updated at: 31/10/2018
 
 #include "ZlatkoStateManager.h"
 
@@ -45,12 +46,24 @@ bool ZlatkoStateManager::isCurrentState(const unsigned int aState) const {
 }
 
 // Ajouter un état, retourne true si l'état est ajouté et sinon false.
-bool ZlatkoStateManager::addState(const unsigned int aState) {
-  if(! (aState >= MIN_INDEX_RESERVED_STATE && aState <= MAX_INDEX_RESERVED_STATE) && setOfState->getSize() < MAX_VALUE_UNSIGNED_INT) {
+const int ZlatkoStateManager::addState(const unsigned int aState) {
+  if(setOfState->getSize() >= MAX_VALUE_UNSIGNED_INT) {
+    // S'il y a trop d'état...
+    return ZlatkoErrorManager::MORE_STATE_ERROR;
+  } else if(aState >= MIN_INDEX_RESERVED_STATE && aState <= MAX_INDEX_RESERVED_STATE) {
+    // Si l'index est réservé par le framework...
+    return ZlatkoErrorManager::RESERVED_STATE_ERROR;
+  } else {
+    // Sinon on peut ajouter l'état...
+    for(unsigned int i = 0 ; i < setOfState->getSize() ; i++) {
+      if(setOfState->getValueAtIndex(i) == aState) {
+        return ZlatkoErrorManager::STATE_ALREADY_ADDED_ERROR;
+      }
+    }
     addStateWithoutRestrict(aState);
-    return true;
+    return ZlatkoErrorManager::NO_ERROR;
   }
-  return false;
+  return ZlatkoErrorManager::UNDEFINED_ERROR;
 }
 
 // Ajouter un état (méthode interne).

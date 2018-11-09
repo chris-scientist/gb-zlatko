@@ -1,5 +1,6 @@
 // author: chris-scientist
 // created at: 17/10/2018
+// updated at: 09/11/2018
 // description: classe principale
 
 #ifndef ZLATKOENGINE
@@ -7,6 +8,7 @@
 
 #include <Gamebuino-Meta.h>
 
+#include "ZlatkoLang.h"
 #include "ZlatkoWindow.h"
 #include "ZlatkoStateManager.h"
 #include "ZlatkoAbstractMenu.h"
@@ -24,6 +26,7 @@ class ZlatkoEngine {
   public:
     ZlatkoEngine();
     void run();
+    void addState(const unsigned int aState);
     void setActiveDefaultMenu(const bool isActive);
     void setDefaultMainMenu(ZlatkoAbstractMenu * aMainMenu);
 };

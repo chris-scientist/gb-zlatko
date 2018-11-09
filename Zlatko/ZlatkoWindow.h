@@ -13,6 +13,7 @@
 class ZlatkoWindow {
   public:
     static void paintAboutZlatko();
+    static void paintDebugWindow();
 };
 
 #endif

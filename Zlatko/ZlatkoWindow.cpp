@@ -3,7 +3,9 @@
 
 #include "ZlatkoWindow.h"
 
+// Afficher les crédits du framework
 void ZlatkoWindow::paintAboutZlatko() {
+  gb.display.setFontSize(1);
   gb.display.setColor(WHITE);
   gb.display.println(ZlatkoLang::getThisAppUse());
   gb.display.println("");
@@ -19,5 +21,19 @@ void ZlatkoWindow::paintAboutZlatko() {
   gb.display.println("");
   gb.display.println("Framework version:");
   gb.display.println(ZLATKO_VERSION);
+}
+
+// Afficher l'écran de debugagge
+void ZlatkoWindow::paintDebugWindow() {
+  gb.display.setFontSize(1);
+  gb.display.setColor(WHITE);
+  gb.display.print("CPU: ");
+  gb.display.setColor(BROWN);
+  gb.display.print(gb.getCpuLoad());
+  gb.display.println(" %");
+  gb.display.setColor(WHITE);
+  gb.display.print("RAM : ");
+  gb.display.setColor(BROWN);
+  gb.display.println(gb.getFreeRam());
 }
 

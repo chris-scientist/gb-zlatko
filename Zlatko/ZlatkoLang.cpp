@@ -1,5 +1,6 @@
 // author: chris-scientist
-// created by: 17/10/2018
+// created at: 17/10/2018
+// updated at: 09/11/2018
 
 #include "ZlatkoLang.h"
 
@@ -9,6 +10,12 @@ const char* ZlatkoLang::debuggingFR = "Debogage";
 const char* ZlatkoLang::debuggingEN = "Debugging";
 const char* ZlatkoLang::designedByFR = "Concu par";
 const char* ZlatkoLang::designedByEN = "Designed by";
+const char* ZlatkoLang::errorAddStateFR = "Echec ajout etat !";
+const char* ZlatkoLang::errorAddStateEN = "Failed to add state!";
+const char* ZlatkoLang::errorWithCodeFR = "ERREUR: %d";
+const char* ZlatkoLang::errorWithCodeEN = "ERROR: %d";
+const char* ZlatkoLang::forOneStateFR = "Pour l'etat %d.";
+const char* ZlatkoLang::forOneStateEN = "For %d state.";
 const char* ZlatkoLang::playFR = "Jouer";
 const char* ZlatkoLang::playEN = "Play";
 const char* ZlatkoLang::thisAppUseFR = "Cette app utilise";
@@ -39,6 +46,33 @@ const char* ZlatkoLang::getDesignedBy() {
   };
 
   return gb.language.get(designedByLang);
+}
+
+const char* ZlatkoLang::getErrorAddState() {
+  const MultiLang errorAddStateLang[] = {
+    { LANG_EN, errorAddStateEN },
+    { LANG_FR, errorAddStateFR }
+  };
+
+  return gb.language.get(errorAddStateLang);
+}
+
+const char* ZlatkoLang::getErrorWithCode() {
+  const MultiLang errorWithCodeLang[] = {
+    { LANG_EN, errorWithCodeEN },
+    { LANG_FR, errorWithCodeFR }
+  };
+
+  return gb.language.get(errorWithCodeLang);
+}
+
+const char* ZlatkoLang::getForOneState() {
+  const MultiLang forOneStateLang[] = {
+    { LANG_EN, forOneStateEN },
+    { LANG_FR, forOneStateFR }
+  };
+
+  return gb.language.get(forOneStateLang);
 }
 
 const char* ZlatkoLang::getPlay() {

@@ -1,14 +1,14 @@
 // author: chris-scientist
 // created at: 17/10/2018
-// updated at: 22/10/2018
+// updated at: 09/11/2018
 
 #include "ZlatkoEngine.h"
 
 ZlatkoEngine::ZlatkoEngine() :
   stateManager(new ZlatkoStateManager()),
-  activeDefaultMenu(true),
-  mainMenu(new ZlatkoDefaultMenu())
+  activeDefaultMenu(true)
 {
+  mainMenu = new ZlatkoDefaultMenu(stateManager);
   initialize();
 }
 
@@ -19,16 +19,7 @@ void ZlatkoEngine::run() {
 
 void ZlatkoEngine::manageCommands() {
   if(stateManager->isMainMenuState()) {
-    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    // A moduler en fonction de votre système de menu.
-    if(((ZlatkoDefaultMenu *)mainMenu)->isPlayItem()) {
-      stateManager->nextState();
-    } else if(((ZlatkoDefaultMenu *)mainMenu)->isAboutZlatkoItem()) {
-      stateManager->setState(ZlatkoStateManager::ABOUT_ZLATKO_STATE);
-    } else if(((ZlatkoDefaultMenu *)mainMenu)->isDebuggingItem()) {
-      stateManager->setState(ZlatkoStateManager::DEBUG_STATE);
-    }
-    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    mainMenu->manageCommands();
   } else {
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // A SUPPRIMER
@@ -50,8 +41,19 @@ void ZlatkoEngine::paint() const {
   } else if(stateManager->isAboutZlatkoState()) {
     ZlatkoWindow::paintAboutZlatko();
   } else if(stateManager->isDebugState()) {
-    gb.display.println("Debug window");
-    gb.display.println("Work in progress");
+    ZlatkoWindow::paintDebugWindow();
+  }
+}
+
+void ZlatkoEngine::addState(const unsigned int aState) {
+  gb.display.clear();
+  const int code = stateManager->addState(aState);
+  if(code != ZlatkoErrorManager::NO_ERROR) {
+    gb.display.printf(ZlatkoLang::getErrorWithCode(), code);
+    gb.display.println("");
+    gb.display.println(ZlatkoLang::getErrorAddState());
+    gb.display.printf(ZlatkoLang::getForOneState(), aState);
+    delay(8000);
   }
 }
 
@@ -64,7 +66,7 @@ void ZlatkoEngine::setDefaultMainMenu(ZlatkoAbstractMenu * aMainMenu) {
 }
 
 void ZlatkoEngine::initialize() {
-  // Afficher le menu par défaut
+  // Afficher le menu à l'initialisation du jeu
   stateManager->setState(ZlatkoStateManager::MAIN_MENU_STATE);
   // Afficher un écran de démarrage
   static const uint8_t splashscreen[] = {
