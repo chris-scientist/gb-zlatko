@@ -1,7 +1,7 @@
 
 # Menu avec ZlatkoAbstractMenu et ZlatkoDefaultMenu - Zlatko Framework
 
-v0.0.4
+v0.0.5
 
 [Retour au sommaire](../README.MD)
 
@@ -21,35 +21,27 @@ Si vous voulez utiliser le système de menu par défaut mais que le menu par dé
     // VotreMenu.h
     
     #include "ZlatkoAbstractMenu.h"
+    #include "ZlatkoStateManager.h"
     
     class VotreMenu : public ZlatkoAbstractMenu {
         public:
+            VotreMenu(ZlatkoStateManager * aStateManager);
             void paint();
+            void manageCommands();
     }
     
     // VotreMenu.cpp
     
     #include "VotreMenu.h"
     
+    VotreMenu::VotreMenu(ZlatkoStateManager * aStateManager) {
+        ZlatkoAbstractMenu::stateManager = aStateManager;
+    }
+    
     void VotreMenu::paint() {
     	// Le code de votre menu ici...
     }
 
-De plus, dans votre programme principal, en particulier dans la méthode *setup()* après la ligne "engine = new ZlatkoEngine();" vous devrez écrire :
-
-    engine->setDefaultMainMenu(new VotreMenu());
-
-Dans la classe *ZlatkoEngine*, et plus précisement la méthode *manageCommands()* il vous faudra adapter le code suivant :
-
-    if(stateManager->isMainMenuState()) {
-        // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        // A moduler en fonction de votre système de menu.
-        if(((ZlatkoDefaultMenu *)mainMenu)->isPlayItem()) {
-            stateManager->nextState();
-        } else if(((ZlatkoDefaultMenu *)mainMenu)->isAboutZlatkoItem()) {
-            stateManager->setState(ZlatkoStateManager::ABOUT_ZLATKO_STATE);
-        } else if(((ZlatkoDefaultMenu *)mainMenu)->isDebuggingItem()) {
-            stateManager->setState(ZlatkoStateManager::DEBUG_STATE);
-        }
-        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    void VotreMenu::manageCommands() {
+        // Changer l'état en fonction de l'item sélectionné.
     }

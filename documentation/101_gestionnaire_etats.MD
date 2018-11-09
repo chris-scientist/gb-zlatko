@@ -1,7 +1,7 @@
 
 # Gérer l'état du jeu avec ZlatkoStateManager - Zlatko Framework
 
-v0.0.3
+v0.0.4
 
 [Retour au sommaire](../README.MD)
 
@@ -43,7 +43,9 @@ La méthode *void setState(const int aState)* permet de passer à coup sûr à l
 
 ### Ajouter un état personnalisé
 
-La méthode *bool addState(const int aState)* permet d'ajouter votre état au gestionnaire, si l'opération réussi alors la méthode renvoie true (sinon false).
+La méthode *const int addState(const int aState)* permet d'ajouter votre état au gestionnaire, si l'opération réussi alors la méthode renvoie ZlatkoErrorManager::NO_ERROR (cf. [code d'erreurs](002_erreurs.MD)).
+
+Pour ajouter un état, il est conseillé de passer par la classe [ZlatkoEngine](099_zlatko_engine.MD).
 
 ### Contrôler l'état courant
 
