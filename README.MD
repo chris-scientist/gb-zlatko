@@ -5,7 +5,7 @@ v0.0.5
 
 ## Description
 
-Version du framework : 09/11/2018 22:00
+Version du framework : 10/11/2018 16:30
 
 Ce code source a pour but de fournir une base de code permettant de faire un jeu du type Sokoban. Il fournis des fonctionnalités tel que la gestion d'état du jeu, un système de menu, une gestion de meilleurs scores, etc. Pour voir toutes les possibilités du framework : reportez-vous à la documentation dont je fournis un sommaire ci-dessous.
 
