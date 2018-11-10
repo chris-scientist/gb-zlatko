@@ -1,5 +1,6 @@
 // author: chris-scientist
 // created at: 17/10/2018
+// updated at: 10/11/2018
 
 #include "ZlatkoWindow.h"
 
@@ -35,5 +36,21 @@ void ZlatkoWindow::paintDebugWindow() {
   gb.display.print("RAM : ");
   gb.display.setColor(BROWN);
   gb.display.println(gb.getFreeRam());
+}
+
+// Afficher l'écran "état indéfini".
+void ZlatkoWindow::paintUndefinedStateWindow() {
+  gb.display.setFontSize(1);
+  gb.display.setColor(WHITE);
+  gb.display.println(ZlatkoLang::getUndefinedState());
+  gb.display.println("");
+  gb.display.println("");
+  gb.display.println("");
+  gb.display.println("");
+  gb.display.println("");
+  gb.display.println("");
+  gb.display.println("");
+  gb.display.println("");
+  gb.display.printf(ZlatkoLang::getGoToMenu(), 'A');
 }
 

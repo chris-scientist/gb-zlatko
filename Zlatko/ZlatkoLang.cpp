@@ -1,6 +1,6 @@
 // author: chris-scientist
 // created at: 17/10/2018
-// updated at: 09/11/2018
+// updated at: 10/11/2018
 
 #include "ZlatkoLang.h"
 
@@ -16,10 +16,14 @@ const char* ZlatkoLang::errorWithCodeFR = "ERREUR: %d";
 const char* ZlatkoLang::errorWithCodeEN = "ERROR: %d";
 const char* ZlatkoLang::forOneStateFR = "Pour l'etat %d.";
 const char* ZlatkoLang::forOneStateEN = "For %d state.";
+const char* ZlatkoLang::goToMenuFR = "(%c) acceder au menu";
+const char* ZlatkoLang::goToMenuEN = "(%c) go to menu";
 const char* ZlatkoLang::playFR = "Jouer";
 const char* ZlatkoLang::playEN = "Play";
 const char* ZlatkoLang::thisAppUseFR = "Cette app utilise";
 const char* ZlatkoLang::thisAppUseEN = "This application use";
+const char* ZlatkoLang::undefinedStateFR = "Etat indefini !";
+const char* ZlatkoLang::undefinedStateEN = "Undefined state!";
 
 const char* ZlatkoLang::getAboutZlatko() {
   const MultiLang aboutZlatkoLang[] = {
@@ -75,6 +79,15 @@ const char* ZlatkoLang::getForOneState() {
   return gb.language.get(forOneStateLang);
 }
 
+const char* ZlatkoLang::getGoToMenu() {
+  const MultiLang goToMenuLang[] = {
+    { LANG_EN, goToMenuEN },
+    { LANG_FR, goToMenuFR }
+  };
+
+  return gb.language.get(goToMenuLang);
+}
+
 const char* ZlatkoLang::getPlay() {
   const MultiLang playLang[] = {
     { LANG_EN, playEN },
@@ -91,5 +104,14 @@ const char* ZlatkoLang::getThisAppUse() {
   };
 
   return gb.language.get(thisAppUseLang);
+}
+
+const char* ZlatkoLang::getUndefinedState() {
+  const MultiLang undefinedStateLang[] = {
+    { LANG_EN, undefinedStateEN },
+    { LANG_FR, undefinedStateFR }
+  };
+
+  return gb.language.get(undefinedStateLang);
 }
 

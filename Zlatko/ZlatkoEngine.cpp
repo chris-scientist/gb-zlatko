@@ -1,6 +1,6 @@
 // author: chris-scientist
 // created at: 17/10/2018
-// updated at: 09/11/2018
+// updated at: 10/11/2018
 
 #include "ZlatkoEngine.h"
 
@@ -20,6 +20,10 @@ void ZlatkoEngine::run() {
 void ZlatkoEngine::manageCommands() {
   if(stateManager->isMainMenuState()) {
     mainMenu->manageCommands();
+  } else if(stateManager->isUndefinedState()) {
+    if(gb.buttons.pressed(BUTTON_A)) {
+      stateManager->setState(ZlatkoStateManager::MAIN_MENU_STATE);
+    }
   } else {
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // A SUPPRIMER
@@ -42,6 +46,8 @@ void ZlatkoEngine::paint() const {
     ZlatkoWindow::paintAboutZlatko();
   } else if(stateManager->isDebugState()) {
     ZlatkoWindow::paintDebugWindow();
+  } else if(stateManager->isUndefinedState()) {
+    ZlatkoWindow::paintUndefinedStateWindow();
   }
 }
 

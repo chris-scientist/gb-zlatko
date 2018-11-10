@@ -1,6 +1,6 @@
 // author: chris-scientist
 // created at: 18/10/2018
-// updated at: 31/10/2018
+// updated at: 10/11/2018
 // description: permet de gérer les différents états du jeu afin d'adapter les commandes et l'affichage
 
 // **************************************************************************
@@ -15,7 +15,7 @@
 
 #include "ZlatkoErrorManager.h"
 #include "ZlatkoConstantes.h"
-#include "ZlatkoVector.cpp"
+#include "ZlatkoVector.h"
 
 class ZlatkoStateManager {
   public:

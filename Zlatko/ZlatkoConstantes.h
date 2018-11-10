@@ -8,7 +8,7 @@
 
 #define ZLATKO_DEBUG true
 
-static const char ZLATKO_VERSION[] = "09/11/2018 22:00";
+static const char ZLATKO_VERSION[] = "10/11/2018 16:30";
 
 static const unsigned int MAX_VALUE_UNSIGNED_INT = 4294967295;
 
